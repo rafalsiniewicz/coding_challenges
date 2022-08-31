@@ -1,5 +1,5 @@
 import unittest
-from time_delta import month_delta, day_delta
+from .time_delta import month_delta, day_delta
 
 
 class TimeDelta(unittest.TestCase):
