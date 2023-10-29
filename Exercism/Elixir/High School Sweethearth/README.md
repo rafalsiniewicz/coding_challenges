@@ -1,55 +1,40 @@
 # Instruction
-In this exercise, you are going to help high school sweethearts profess their love on social media by generating an ASCII heart with their initials:
+You're an avid bird watcher that keeps track of how many birds have visited your garden on any given day.
 
-     ******       ******
-   **      **   **      **
- **         ** **         **
-**            *            **
-**                         **
-**     J. K.  +  M. B.     **
- **                       **
-   **                   **
-     **               **
-       **           **
-         **       **
-           **   **
-             ***
-              *
-1. Get the name's first letter
-Implement the HighSchoolSweetheart.first_letter/1 function. It should take a name and return its first letter. It should clean up any unnecessary whitespace from the name.
+You decided to bring your bird watching to a new level and implement a few tools that will help you track and process the data.
 
-HighSchoolSweetheart.first_letter("Jane")
-# => "J"
-2. Format the first letter as an initial
-Implement the HighSchoolSweetheart.initial/1 function. It should take a name and return its first letter, uppercase, followed by a dot. Make sure to reuse HighSchoolSweetheart.first_letter/1 that you defined in the previous step.
+You have chosen to store the data as a list of integers. The first number in the list is the number of birds that visited your garden today, the second yesterday, and so on.
 
-HighSchoolSweetheart.initial("Robert")
-# => "R."
-3. Split the full name into the first name and the last name
-Implement the HighSchoolSweetheart.initials/1 function. It should take a full name, consisting of a first name and a last name separated by a space, and return the initials. Make sure to reuse HighSchoolSweetheart.initial/1 that you defined in the previous step.
+1. Check how many birds visited today
+Implement the BirdCount.today/1 function. It should take a list of daily bird counts and return today's count. If the list is empty, it should return nil.
 
-HighSchoolSweetheart.initials("Lance Green")
-# => "L. G."
-4. Put the initials inside of the heart
-Implement the HighSchoolSweetheart.pair/2 function. It should take two full names and return the initials inside an ASCII heart. Make sure to reuse HighSchoolSweetheart.initials/1 that you defined in the previous step.
+BirdCount.today([2, 5, 1])
+# => 2
+2. Increment today's count
+Implement the BirdCount.increment_day_count/1 function. It should take a list of daily bird counts and increment the today's count by 1. If the list is empty, return [1].
 
-HighSchoolSweetheart.pair("Blake Miller", "Riley Lewis")
-# => """
-#      ******       ******
-#    **      **   **      **
-#  **         ** **         **
-# **            *            **
-# **                         **
-# **     B. M.  +  R. L.     **
-#  **                       **
-#    **                   **
-#      **               **
-#        **           **
-#          **       **
-#            **   **
-#              ***
-#               *
-# """
+BirdCount.increment_day_count([4, 0, 2])
+# => [5, 0, 2]
+3. Check if there was a day with no visiting birds
+Implement the BirdCount.has_day_without_birds?/1 function. It should take a list of daily bird counts. It should return true if there was at least one day when no birds visited the garden, and false otherwise.
+
+BirdCount.has_day_without_birds?([2, 0, 4])
+# => true
+
+BirdCount.has_day_without_birds?([3, 8, 1, 5])
+# => false
+4. Calculate the total number of visiting birds
+Implement the BirdCount.total/1 function. It should take a list of daily bird counts and return the total number that visited your garden since you started collecting the data.
+
+BirdCount.total([4, 0, 9, 0, 5])
+# => 18
+5. Calculate the number of busy days
+Some days are busier than others. A busy day is one where five or more birds have visited your garden.
+
+Implement the BirdCount.busy_days/1 function. It should take a list of daily bird counts and return the number of busy days.
+
+BirdCount.busy_days([4, 5, 0, 0, 6])
+# => 2
 
 # Links
-1. https://exercism.org/tracks/elixir/exercises/high-school-sweetheart
+1. https://exercism.org/tracks/elixir/exercises/bird-count
