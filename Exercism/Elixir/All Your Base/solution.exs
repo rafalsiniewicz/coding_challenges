@@ -21,14 +21,13 @@ defmodule AllYourBase do
 
   end
 
-  def do_convert(digits, input_base, output_base) do
+  defp do_convert(digits, input_base, output_base) do
     decimal = Enum.reduce(Enum.reverse(digits), {0, 0}, fn digit, _acc = {index, value} ->
       {index + 1, value + digit * Integer.pow(input_base, index)}
      end)
 
      {:ok, decimal_to_base(elem(decimal, 1), output_base)}
   end
-
 
   defp decimal_to_base(decimal, base, acc \\ "")
 
