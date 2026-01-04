@@ -14,7 +14,7 @@ defmodule PigLatin do
   defp translate_word(word) do
     cond do
       # Words that start with a vowel, xr, or yt
-      Regex.match?(~r/^(?:[aeiou]|xr|yt)/i, word) ->
+      Regex.match?(~r/^([aeiou]|xr|yt)/i, word) ->
         word <> "ay"
 
       # Words that start with consonant(s) + qu
@@ -22,7 +22,7 @@ defmodule PigLatin do
         [_full, cons_qu, rest] = captures
         rest <> cons_qu <> "ay"
 
-      # Words that start with y (treated as vowel)
+      # Words that start with y (treated as consonat)
       captures = Regex.run(~r/^([yY])(.*)$/, word) ->
         [_full, y, rest] = captures
         rest <> y <> "ay"
